@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="my_array">
+        <item>화장실</item>
+        <item>매점</item>
+        <item>식당</item>
+        <item>헬스장</item>
+        <item>ATM</item>
+    </string-array>
+</resources>

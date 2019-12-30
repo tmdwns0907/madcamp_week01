@@ -13,7 +13,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,6 +48,11 @@ public class PageThreeFragment extends Fragment implements OnMapReadyCallback{
     private MapView mapView=null;
     Button ShowLocationButton=null;
     Button FindFacilButton=null;
+    double[][] cafeteria={{36.373864, 127.363836}};
+    double[][] toilet={{36.373864, 127.363836}};
+    double[][] gym={{36.373864, 127.363836}};
+    double[][] atm={{36.373864, 127.363836}};
+    double[][] store={{36.373864, 127.363836}};
 
     private static final int GPS_ENABLE_REQUEST_CODE = 2001;
     private static final int PERMISSIONS_REQUEST_CODE = 100;
@@ -94,31 +102,44 @@ public class PageThreeFragment extends Fragment implements OnMapReadyCallback{
         //mapFragment.getMapAsync(this);
 
 
-        FindFacilButton = (Button) rootview.findViewById(R.id.button3);
-        FindFacilButton.setOnClickListener(new View.OnClickListener()
-        {
+//        FindFacilButton = (Button) rootview.findViewById(R.id.button3);
+//        FindFacilButton.setOnClickListener(new View.OnClickListener()
+//        {
+//            @Override
+//            public void onClick(View arg0)
+//            {
+//                double[][] arr={{36.373864, 127.363836},{36.372860, 127.363666},{36.373758, 127.356714},{36.373758, 127.356714},{36.372428, 127.361660}};
+//
+//                for(int i=0;i<arr.length;i++) {
+//                    double latitude = arr[i][0];
+//                    double longitude = arr[i][1];
+//
+//                    LatLng my_pos = new LatLng(latitude, longitude);
+//
+//                    MarkerOptions makerOptions = new MarkerOptions();
+//                    makerOptions
+//                            .position(my_pos)
+//                            .title("원하는 위치(위도, 경도)에 마커를 표시했습니다.");
+//                    mMap.addMarker(makerOptions);
+//                }
+//            }
+//        });
+        Spinner spinner2 = (Spinner)rootview.findViewById(R.id.spinner);
+        String[] items = getResources().getStringArray(R.array.my_array);
+        ArrayAdapter SpnAdapter = new ArrayAdapter(getActivity(),android.R.layout.simple_spinner_dropdown_item,items);
+        spinner2.setAdapter(SpnAdapter);
+        spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onClick(View arg0)
-            {
-                double[][] arr={{36.373864, 127.363836},{36.372860, 127.363666},{36.373758, 127.356714},{36.373758, 127.356714},{36.372428, 127.361660}};
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
-                for(int i=0;i<arr.length;i++) {
-                    double latitude = arr[i][0];
-                    double longitude = arr[i][1];
-
-                    LatLng my_pos = new LatLng(latitude, longitude);
-
-                    // 구글 맵에 표시할 마커에 대한 옵션 설정
-                    MarkerOptions makerOptions = new MarkerOptions();
-                    makerOptions
-                            .position(my_pos)
-                            .title("원하는 위치(위도, 경도)에 마커를 표시했습니다.");
-
-                    // 마커를 생성한다.
-                    mMap.addMarker(makerOptions);
-                }
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
             }
         });
+
+
+
         mapView = (MapView) rootview.findViewById(R.id.map);
         mapView.onCreate(savedInstanceState);
         mapView.onResume();
