@@ -30,6 +30,7 @@ import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.IOException;
@@ -59,7 +60,7 @@ public class PageThreeFragment extends Fragment implements OnMapReadyCallback{
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootview = inflater.inflate(R.layout.page_three_fragment,container,false);
+        final View rootview = inflater.inflate(R.layout.page_three_fragment,container,false);
 
         if (!checkLocationServicesStatus()) {
 
@@ -112,11 +113,23 @@ public class PageThreeFragment extends Fragment implements OnMapReadyCallback{
                     MarkerOptions makerOptions = new MarkerOptions();
                     makerOptions
                             .position(my_pos)
-                            .title("원하는 위치(위도, 경도)에 마커를 표시했습니다.");
+                            .title("원하는 위치(위도, 경도)에 마커를 표시했습니다.")
+                            .snippet("세부설명");
 
                     // 마커를 생성한다.
                     mMap.addMarker(makerOptions);
                 }
+
+                mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+
+                    public boolean onMarkerClick(Marker marker) {
+                        String text = ""+marker.getSnippet();
+                        TextView tvText=(TextView) rootview.findViewById(R.id.Text);
+                        tvText.setText(text);
+                        return false;
+                    }
+                });
+
             }
         });
         mapView = (MapView) rootview.findViewById(R.id.map);
