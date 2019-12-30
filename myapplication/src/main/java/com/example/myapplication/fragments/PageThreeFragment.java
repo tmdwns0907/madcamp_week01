@@ -101,22 +101,7 @@ public class PageThreeFragment extends Fragment implements OnMapReadyCallback{
                 mapView.getMapAsync(PageThreeFragment.this);
             }
         });
-        /*SupportMapFragment mapFragment = (SupportMapFragment) getActivity().getSupportFragmentManager()
-                .findFragmentById(R.id.map);*/
-        //mapFragment.getMapAsync(this);
 
-
-        /*FindFacilButton = (Button) rootview.findViewById(R.id.button3);
-        FindFacilButton.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View arg0) {
-                double[][] arr = {{36.373864, 127.363836}, {36.372860, 127.363666}, {36.373758, 127.356714}, {36.373758, 127.356714}, {36.372428, 127.361660}};
-
-
-
-            }
-            });*/
 
         Spinner spinner2 = (Spinner)rootview.findViewById(R.id.spinner);
         String[] items = getResources().getStringArray(R.array.my_array);
@@ -174,9 +159,7 @@ public class PageThreeFragment extends Fragment implements OnMapReadyCallback{
         double latitude = gpsTracker.getLatitude();
         double longitude = gpsTracker.getLongitude();
 
-        String address = getCurrentAddress(latitude, longitude);
 
-        // Toast.makeText(getActivity(), "현재위치 \n위도 " + latitude + "\n경도 " + longitude, Toast.LENGTH_LONG).show();
         // 서울에 대한 위치 설정
         LatLng my_pos = new LatLng(latitude,longitude);
 
@@ -194,30 +177,7 @@ public class PageThreeFragment extends Fragment implements OnMapReadyCallback{
 //        mMap.moveCamera(CameraUpdateFactory.newLatLng(my_pos));
 //        mMap.animateCamera(CameraUpdateFactory.zoomTo(17));
 
-        /*ShowLocationButton.setOnClickListener(new View.OnClickListener()
-        {
-            MarkerOptions makerOptions2=makerOptions;
-            LatLng seoul2=seoul;
-            @Override
-            public void onClick(View arg0)
-            {
 
-                gpsTracker = new GpsTracker(getActivity());
-
-                double latitude = gpsTracker.getLatitude();
-                double longitude = gpsTracker.getLongitude();
-
-                String address = getCurrentAddress(latitude, longitude);
-
-                Toast.makeText(getActivity(), "현재위치 \n위도 " + latitude + "\n경도 " + longitude, Toast.LENGTH_LONG).show();
-                // 마커를 생성한다.
-                mMap.addMarker(makerOptions2);
-
-                //카메라를 서울 위치로 옮긴다.
-                mMap.moveCamera(CameraUpdateFactory.newLatLng(seoul2));
-                mMap.animateCamera(CameraUpdateFactory.zoomTo(10));
-            }
-        });*/
     }
 
 
