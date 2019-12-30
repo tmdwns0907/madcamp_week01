@@ -33,6 +33,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -43,6 +44,7 @@ public class PageThreeFragment extends Fragment implements OnMapReadyCallback{
     private GoogleMap mMap;
     private MapView mapView=null;
     Button ShowLocationButton=null;
+    Button FindFacilButton=null;
 
     private static final int GPS_ENABLE_REQUEST_CODE = 2001;
     private static final int PERMISSIONS_REQUEST_CODE = 100;
@@ -91,6 +93,32 @@ public class PageThreeFragment extends Fragment implements OnMapReadyCallback{
                 .findFragmentById(R.id.map);*/
         //mapFragment.getMapAsync(this);
 
+
+        FindFacilButton = (Button) rootview.findViewById(R.id.button3);
+        FindFacilButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View arg0)
+            {
+                double[][] arr={{36.373864, 127.363836},{36.372860, 127.363666},{36.373758, 127.356714},{36.373758, 127.356714},{36.372428, 127.361660}};
+
+                for(int i=0;i<arr.length;i++) {
+                    double latitude = arr[i][0];
+                    double longitude = arr[i][1];
+
+                    LatLng my_pos = new LatLng(latitude, longitude);
+
+                    // 구글 맵에 표시할 마커에 대한 옵션 설정
+                    MarkerOptions makerOptions = new MarkerOptions();
+                    makerOptions
+                            .position(my_pos)
+                            .title("원하는 위치(위도, 경도)에 마커를 표시했습니다.");
+
+                    // 마커를 생성한다.
+                    mMap.addMarker(makerOptions);
+                }
+            }
+        });
         mapView = (MapView) rootview.findViewById(R.id.map);
         mapView.onCreate(savedInstanceState);
         mapView.onResume();
@@ -126,7 +154,7 @@ public class PageThreeFragment extends Fragment implements OnMapReadyCallback{
 
         //카메라를 서울 위치로 옮긴다.
         mMap.moveCamera(CameraUpdateFactory.newLatLng(my_pos));
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(10));
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(17));
 
         /*ShowLocationButton.setOnClickListener(new View.OnClickListener()
         {
