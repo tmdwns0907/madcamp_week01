@@ -48,11 +48,9 @@ public class PageThreeFragment extends Fragment implements OnMapReadyCallback{
     private MapView mapView=null;
     Button ShowLocationButton=null;
     Button FindFacilButton=null;
-    double[][] cafeteria={{36.373864, 127.363836}};
-    double[][] toilet={{36.373864, 127.363836}};
-    double[][] gym={{36.373864, 127.363836}};
-    double[][] atm={{36.373864, 127.363836}};
-    double[][] store={{36.373864, 127.363836}};
+    double[][][] cafeteria= {{{36.373864, 127.363836}},{{36.373864, 127.363836}},
+            {{36.373864, 127.363836}},{{36.373864, 127.363836}},{{36.373864, 127.363836}}};
+
 
     private static final int GPS_ENABLE_REQUEST_CODE = 2001;
     private static final int PERMISSIONS_REQUEST_CODE = 100;
