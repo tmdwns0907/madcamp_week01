@@ -5,6 +5,8 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.LocationManager;
@@ -13,11 +15,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -29,6 +35,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -46,6 +53,7 @@ public class PageThreeFragment extends Fragment implements OnMapReadyCallback{
     private MapView mapView=null;
     Button ShowLocationButton=null;
     Button FindFacilButton=null;
+    double[][][] places={{{36.373864, 127.363836},{36.372447, 127.366325}},{{36.372473, 127.361572}},{{36.373864, 127.363836}},{{36.373864, 127.363836}},{{36.373864, 127.363836}}};
 
     private static final int GPS_ENABLE_REQUEST_CODE = 2001;
     private static final int PERMISSIONS_REQUEST_CODE = 100;
@@ -79,14 +87,17 @@ public class PageThreeFragment extends Fragment implements OnMapReadyCallback{
             public void onClick(View arg0)
             {
 
-                /*gpsTracker = new GpsTracker(getActivity());
+                gpsTracker = new GpsTracker(getActivity());
 
                 double latitude = gpsTracker.getLatitude();
                 double longitude = gpsTracker.getLongitude();
 
                 String address = getCurrentAddress(latitude, longitude);
+                LatLng my_pos = new LatLng(latitude,longitude);
 
-                Toast.makeText(getActivity(), "현재위치 \n위도 " + latitude + "\n경도 " + longitude, Toast.LENGTH_LONG).show();*/
+                Toast.makeText(getActivity(), "현재위치 \n위도 " + latitude + "\n경도 " + longitude, Toast.LENGTH_LONG).show();
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(my_pos));
+                mMap.animateCamera(CameraUpdateFactory.zoomTo(17));
                 mapView.getMapAsync(PageThreeFragment.this);
             }
         });
@@ -95,47 +106,60 @@ public class PageThreeFragment extends Fragment implements OnMapReadyCallback{
         //mapFragment.getMapAsync(this);
 
 
-        FindFacilButton = (Button) rootview.findViewById(R.id.button3);
+        /*FindFacilButton = (Button) rootview.findViewById(R.id.button3);
         FindFacilButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
-            public void onClick(View arg0)
-            {
-                double[][] arr={{36.373864, 127.363836},{36.372860, 127.363666},{36.373758, 127.356714},{36.373758, 127.356714},{36.372428, 127.361660}};
+            public void onClick(View arg0) {
+                double[][] arr = {{36.373864, 127.363836}, {36.372860, 127.363666}, {36.373758, 127.356714}, {36.373758, 127.356714}, {36.372428, 127.361660}};
 
-                for(int i=0;i<arr.length;i++) {
-                    double latitude = arr[i][0];
-                    double longitude = arr[i][1];
+
+
+            }
+            });*/
+
+        Spinner spinner2 = (Spinner)rootview.findViewById(R.id.spinner);
+        String[] items = getResources().getStringArray(R.array.my_array);
+        ArrayAdapter SpnAdapter = new ArrayAdapter(getActivity(),android.R.layout.simple_spinner_dropdown_item,items);
+        spinner2.setAdapter(SpnAdapter);
+        spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                mMap.clear();
+                mapView.getMapAsync(PageThreeFragment.this);
+                for (int j = 0; j < places[i].length; j++) {
+                    double latitude = places[i][j][0];
+                    double longitude = places[i][j][1];
 
                     LatLng my_pos = new LatLng(latitude, longitude);
 
-                    // 구글 맵에 표시할 마커에 대한 옵션 설정
                     MarkerOptions makerOptions = new MarkerOptions();
                     makerOptions
                             .position(my_pos)
                             .title("원하는 위치(위도, 경도)에 마커를 표시했습니다.")
-                            .snippet("세부설명");
-
-                    // 마커를 생성한다.
+                            .snippet("상세정보");
                     mMap.addMarker(makerOptions);
                 }
-
                 mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
 
                     public boolean onMarkerClick(Marker marker) {
-                        String text = ""+marker.getSnippet();
-                        TextView tvText=(TextView) rootview.findViewById(R.id.Text);
+                        String text = "" + marker.getSnippet();
+                        TextView tvText = (TextView) rootview.findViewById(R.id.Text);
                         tvText.setText(text);
                         return false;
                     }
                 });
-
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
             }
         });
+
         mapView = (MapView) rootview.findViewById(R.id.map);
         mapView.onCreate(savedInstanceState);
         mapView.onResume();
-        mapView.getMapAsync(this);
+        mapView.getMapAsync(PageThreeFragment.this);
+
 
 
         return rootview;
@@ -152,22 +176,23 @@ public class PageThreeFragment extends Fragment implements OnMapReadyCallback{
 
         String address = getCurrentAddress(latitude, longitude);
 
-        Toast.makeText(getActivity(), "현재위치 \n위도 " + latitude + "\n경도 " + longitude, Toast.LENGTH_LONG).show();
+        // Toast.makeText(getActivity(), "현재위치 \n위도 " + latitude + "\n경도 " + longitude, Toast.LENGTH_LONG).show();
         // 서울에 대한 위치 설정
         LatLng my_pos = new LatLng(latitude,longitude);
 
         // 구글 맵에 표시할 마커에 대한 옵션 설정
         final MarkerOptions makerOptions = new MarkerOptions();
-        makerOptions
-                .position(my_pos)
-                .title("원하는 위치(위도, 경도)에 마커를 표시했습니다.");
-
+        makerOptions.position(my_pos).title("원하는 위치(위도, 경도)에 마커를 표시했습니다.");
         // 마커를 생성한다.
+        BitmapDrawable bitmapdraw=(BitmapDrawable)getResources().getDrawable(R.drawable.loc);
+        Bitmap b=bitmapdraw.getBitmap();
+        Bitmap smallMarker = Bitmap.createScaledBitmap(b, 50, 50, false);
+        makerOptions.icon(BitmapDescriptorFactory.fromBitmap(smallMarker));
         mMap.addMarker(makerOptions);
 
         //카메라를 서울 위치로 옮긴다.
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(my_pos));
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(17));
+//        mMap.moveCamera(CameraUpdateFactory.newLatLng(my_pos));
+//        mMap.animateCamera(CameraUpdateFactory.zoomTo(17));
 
         /*ShowLocationButton.setOnClickListener(new View.OnClickListener()
         {

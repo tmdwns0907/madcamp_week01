@@ -22,12 +22,15 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:text="현재위치"/>
-        <Button
-            android:id="@+id/button3"
+        <Spinner
+            android:id="@+id/spinner"
+            android:background="@drawable/spinner_background"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_alignTop="@id/button"
             android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
             android:text="카이스트 주변 편의시설 찾아보기"
             />
     </RelativeLayout>
