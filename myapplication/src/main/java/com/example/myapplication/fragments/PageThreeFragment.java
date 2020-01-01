@@ -62,6 +62,7 @@ public class PageThreeFragment extends Fragment implements OnMapReadyCallback{
      /*ATM*/{{1,1},{36.373002, 127.360044}, {36.373826, 127.359566},{36.374279, 127.365333}, {36.367317, 127.361033}, {36.370347, 127.362341}, {36.368377, 127.363706}, {36.370515, 127.361343}, {36.369929, 127.364582}, {36.367400, 127.364203}, {36.371511, 127.361874}, {36.368438, 127.365189}, {36.366111, 127.361184}, {36.368250, 127.356969},{36.369935,127.359909},{36.369404, 127.369820},{36.373698,127.361945},{36.368186,127.366679}},
      /*☆*/       {{1,1},{36.365915,127.357795},{36.373428,127.356304},{36.373741,127.357902},{36.370925,127.358217},{36.373189,127.359521},{36.367607,127.362575}}};
     double[][] places2 ={{1,1}, {36.366028, 127.363610},{36.367302, 127.364330},{36.367983, 127.365622},{36.368319,127.364776},{36.368861, 127.365178},{36.368710, 127.365695},{36.368219, 127.363896},{36.369123,127.363740},{36.369942, 127.364595},{36.370335, 127.365443},{36.371080, 127.366582},{36.369607,127.362419},{36.371631, 127.365111},{36.370419, 127.362680},{36.371242, 127.364575},{36.372475,127.366309},{36.370537, 127.361300},{36.372131, 127.362870},{36.371533, 127.361930},{36.369487,127.368508},{36.368540, 127.367977},{36.368540, 127.367977},{36.368235, 127.366778},{36.372468,127.366994},{36.369355,127.369706},{36.365763, 127.361383},{36.367202, 127.360760},{36.367514, 127.358126},{36.368022,127.357247},{36.368166, 127.357114},{36.368416, 127.356807},{36.368456, 127.356413},{36.369489,127.356394},{36.370279, 127.355532},{36.370413, 127.355965},{36.371023, 127.355839},{36.369967,127.359866},{36.370882, 127.358138},{36.371402, 127.356867},{36.371959, 127.356459},{36.368654,127.357242},{36.365588, 127.362517},{36.373421, 127.366916},{36.374104, 127.365815},{36.372904,127.363684},{36.372333, 127.361532},{36.373236, 127.362643},{36.374204, 127.363694},{36.374549,127.364767},{36.372456, 127.358703},{36.374002, 127.361664},{36.374023, 127.360366},{36.373725,127.359265},{36.373933,127.359637},{36.373015,127.360022},{36.373234,127.360742},{36.373712, 127.358467},{36.374870, 127.359916},{36.373803, 127.357646},{36.374300,127.358864},{36.374706, 127.359148},{36.373760, 127.356740},{36.375155, 127.358988},{36.375820,127.358719},{36.374797, 127.364261},{36.375367, 127.364036},{36.375358, 127.363505},{36.373661,127.361923},{36.375414, 127.361638},{36.375483, 127.360700},{36.375406, 127.362491}};
+    double[] center ={36.369447,127.362459};
     private static final int GPS_ENABLE_REQUEST_CODE = 2001;
     private static final int PERMISSIONS_REQUEST_CODE = 100;
     String[] REQUIRED_PERMISSIONS  = {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION};
@@ -91,6 +92,30 @@ public class PageThreeFragment extends Fragment implements OnMapReadyCallback{
         final String[] itemsatm = getResources().getStringArray(R.array.atm);
         final String[] itemsothers = getResources().getStringArray(R.array.others);
         final String[] infos = getResources().getStringArray(R.array.infos);
+        double cenL = center[0];
+        double cenLn = center[1];
+        final LatLng center = new LatLng(cenL,cenLn);
+
+        final ArrayAdapter SpnAdapter3 = new ArrayAdapter(getActivity(),android.R.layout.simple_spinner_dropdown_item,df){
+            @NonNull
+            @Override
+            public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+                View v = super.getView(position, convertView, parent);
+                Typeface externalFont=Typeface.createFromAsset(getActivity().getAssets(), "fonts/fonttest.ttf");
+                ((TextView) v).setTypeface(externalFont);
+                return v;
+            }
+            public View getDropDownView(int position,  View convertView,  ViewGroup parent) {
+                View v =super.getDropDownView(position, convertView, parent);
+                Typeface externalFont=Typeface.createFromAsset(getActivity().getAssets(), "fonts/fonttest.ttf");
+                ((TextView) v).setTypeface(externalFont);
+                v.setBackgroundColor(Color.WHITE);
+                ((TextView) v).setTextColor(Color.BLACK);
+                return v;
+            }
+
+        };
+        spinnerson.setAdapter(SpnAdapter3);
 
         final ArrayAdapter SpnAdapter = new ArrayAdapter(getActivity(),android.R.layout.simple_spinner_dropdown_item,items){
             @NonNull
@@ -136,8 +161,15 @@ public class PageThreeFragment extends Fragment implements OnMapReadyCallback{
                         }
 
                     };
+                    spinnerson.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                            return; }
+                        @Override
+                        public void onNothingSelected(AdapterView<?> adapterView) {
+                        }
+                    });
                     spinnerson.setAdapter(SpnAdapter3);
-                    spinnerson.setSelection(0);
                     return;
                 }
                 spinner22.setSelection(0);
@@ -230,6 +262,8 @@ public class PageThreeFragment extends Fragment implements OnMapReadyCallback{
                         @Override
                         public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                             if(i==0){
+                                mMap.moveCamera(CameraUpdateFactory.newLatLng(center));
+                                mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
                                 return;
                             }
                             Marker marker = markers.get(i);
@@ -271,6 +305,8 @@ public class PageThreeFragment extends Fragment implements OnMapReadyCallback{
                         @Override
                         public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                             if(i==0){
+                                mMap.moveCamera(CameraUpdateFactory.newLatLng(center));
+                                mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
                                 return;
                             }
                             Marker marker = markers.get(i);
@@ -312,6 +348,8 @@ public class PageThreeFragment extends Fragment implements OnMapReadyCallback{
                         @Override
                         public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                             if(i==0){
+                                mMap.moveCamera(CameraUpdateFactory.newLatLng(center));
+                                mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
                                 return;
                             }
                             Marker marker = markers.get(i);
@@ -353,6 +391,8 @@ public class PageThreeFragment extends Fragment implements OnMapReadyCallback{
                         @Override
                         public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                             if(i==0){
+                                mMap.moveCamera(CameraUpdateFactory.newLatLng(center));
+                                mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
                                 return;
                             }
                             Marker marker = markers.get(i);
@@ -394,6 +434,8 @@ public class PageThreeFragment extends Fragment implements OnMapReadyCallback{
                         @Override
                         public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                             if(i==0){
+                                mMap.moveCamera(CameraUpdateFactory.newLatLng(center));
+                                mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
                                 return;
                             }
                             Marker marker = markers.get(i);
@@ -435,6 +477,8 @@ public class PageThreeFragment extends Fragment implements OnMapReadyCallback{
                         @Override
                         public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                             if(i==0){
+                                mMap.moveCamera(CameraUpdateFactory.newLatLng(center));
+                                mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
                                 return;
                             }
                             Marker marker = markers.get(i);
@@ -487,6 +531,7 @@ public class PageThreeFragment extends Fragment implements OnMapReadyCallback{
                     String text = "" + makerOptions.getSnippet();
                     TextView tvText = (TextView) rootview.findViewById(R.id.Text);
                     tvText.setText(text);
+                    spinnerson.setSelection(0);
                     return;
                 }
                 spinner2.setSelection(0);
