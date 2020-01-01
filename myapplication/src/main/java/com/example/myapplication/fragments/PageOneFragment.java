@@ -21,12 +21,9 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class PageOneFragment extends Fragment {
-    static final String[] LIST_MENU = {"LIST1", "LIST2", "LIST3"} ;
     ListView mListView;
-
     public PageOneFragment() {
     }
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -48,9 +45,6 @@ public class PageOneFragment extends Fragment {
         }catch (JSONException e) {
             e.printStackTrace();
         }
-//        mMyAdapter.addItem(ContextCompat.getDrawable(getContext(), R.drawable.vfdvdfdfv),
-//                "Box", "Account Box Black 36dp") ;
-        // 두 번째 아이템 추가.
 
 
 

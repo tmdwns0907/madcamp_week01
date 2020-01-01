@@ -28,32 +28,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /*tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.tab_icon1));
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.tab_icon2));
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.tab_icon3));
-        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
-
-        mViewPager = (ViewPager) findViewById(R.id.container);
-        TabPagerAdapter pagerAdapter = new TabPagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
-        mViewPager.setAdapter(pagerAdapter);
-        mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener(){
-            @Override
-            public void onTabSelected(TabLayout.Tab tab){
-                mViewPager.setCurrentItem(tab.getPosition());
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab){
-
-            }
-            @Override
-            public void onTabReselected(TabLayout.Tab tab){
-
-            }
-        });*/
-        // 위에는 TabHost 방식으로 구현한 것. 주석처리
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         mViewPager = (ViewPager) findViewById(R.id.container);

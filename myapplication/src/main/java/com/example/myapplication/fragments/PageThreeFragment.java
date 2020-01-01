@@ -67,12 +67,8 @@ public class PageThreeFragment extends Fragment implements OnMapReadyCallback{
     String[] REQUIRED_PERMISSIONS  = {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION};
     public PageThreeFragment() {
     }
-
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
+    public void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View rootview = inflater.inflate(R.layout.page_three_fragment,container,false);
@@ -81,28 +77,6 @@ public class PageThreeFragment extends Fragment implements OnMapReadyCallback{
         }else {
             checkRunTimePermission();
         }
-
-        /*ShowLocationButton = (Button) rootview.findViewById(R.id.button);
-        ShowLocationButton.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View arg0)
-            {
-
-                gpsTracker = new GpsTracker(getActivity());
-
-                double latitude = gpsTracker.getLatitude();
-                double longitude = gpsTracker.getLongitude();
-
-                String address = getCurrentAddress(latitude, longitude);
-                LatLng my_pos = new LatLng(latitude,longitude);
-
-                Toast.makeText(getActivity(), "현재위치 \n위도 " + latitude + "\n경도 " + longitude, Toast.LENGTH_LONG).show();
-                mMap.moveCamera(CameraUpdateFactory.newLatLng(my_pos));
-                mMap.animateCamera(CameraUpdateFactory.zoomTo(16));
-                mapView.getMapAsync(PageThreeFragment.this);
-            }
-        });*/
 
         final Spinner spinner2 = (Spinner)rootview.findViewById(R.id.spinner);
         final Spinner spinner22 = (Spinner)rootview.findViewById(R.id.spinner2);
@@ -117,8 +91,6 @@ public class PageThreeFragment extends Fragment implements OnMapReadyCallback{
         final String[] itemsatm = getResources().getStringArray(R.array.atm);
         final String[] itemsothers = getResources().getStringArray(R.array.others);
         final String[] infos = getResources().getStringArray(R.array.infos);
-
-
 
         final ArrayAdapter SpnAdapter = new ArrayAdapter(getActivity(),android.R.layout.simple_spinner_dropdown_item,items){
             @NonNull
@@ -166,11 +138,6 @@ public class PageThreeFragment extends Fragment implements OnMapReadyCallback{
                     };
                     spinnerson.setAdapter(SpnAdapter3);
                     spinnerson.setSelection(0);
-                    MarkerOptions makerOptions = new MarkerOptions();
-                    makerOptions.snippet(infos[i]);
-                    String text = "" + makerOptions.getSnippet();
-                    TextView tvText = (TextView) rootview.findViewById(R.id.Text);
-                    tvText.setText(text);
                     return;
                 }
                 spinner22.setSelection(0);
@@ -690,42 +657,7 @@ public class PageThreeFragment extends Fragment implements OnMapReadyCallback{
 
     }
 
-    public String getCurrentAddress( double latitude, double longitude) {
 
-        //지오코더... GPS를 주소로 변환
-        //this
-        Geocoder geocoder = new Geocoder(getActivity(), Locale.getDefault());
-
-        List<Address> addresses;
-
-        try {
-
-            addresses = geocoder.getFromLocation(
-                    latitude,
-                    longitude,
-                    7);
-        } catch (IOException ioException) {
-            //네트워크 문제
-            Toast.makeText(getActivity(), "지오코더 서비스 사용불가", Toast.LENGTH_LONG).show();
-            return "지오코더 서비스 사용불가";
-        } catch (IllegalArgumentException illegalArgumentException) {
-            Toast.makeText(getActivity(), "잘못된 GPS 좌표", Toast.LENGTH_LONG).show();
-            return "잘못된 GPS 좌표";
-
-        }
-
-
-
-        if (addresses == null || addresses.size() == 0) {
-            Toast.makeText(getActivity(), "주소 미발견", Toast.LENGTH_LONG).show();
-            return "주소 미발견";
-
-        }
-
-        Address address = addresses.get(0);
-        return address.getAddressLine(0).toString()+"\n";
-
-    }
 
     private void showDialogForLocationServiceSetting() {
 
@@ -773,26 +705,10 @@ public class PageThreeFragment extends Fragment implements OnMapReadyCallback{
         }
     }
 
-    private void setPermission(){
-        if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
-                ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-
-            ActivityCompat.requestPermissions(getActivity(),
-                    new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, 1);
-            ActivityCompat.requestPermissions(getActivity(),
-                    new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, 1);
-            return;
-        }
-    }
-
     public boolean checkLocationServicesStatus() {
         LocationManager locationManager = (LocationManager) getActivity().getSystemService(LOCATION_SERVICE);
 
         return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
                 || locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
     }
-
 }
-
-
-

@@ -28,7 +28,6 @@ public class PageTwoFragment extends Fragment {
         ImageAdapter imageAdapter = new ImageAdapter(getContext());
         gridView = (GridView)rootview.findViewById(R.id.gridView1);
         gridView.setAdapter(imageAdapter);
-
         return rootview;
     }
 
