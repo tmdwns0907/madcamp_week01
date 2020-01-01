@@ -1,10 +1,307 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="my_array2">
+        <item>학교 주요시설</item>
+        <item>E1_정문</item>
+        <item>E2_산경동</item>
+        <item>E3-1_전산동</item>
+        <item>E3-2_전자동</item>
+        <item>E3-3</item>
+        <item>E3-4</item>
+        <item>E4_KI빌딩</item>
+        <item>E5_동측</item>
+        <item>E6_자과동</item>
+        <item>E7_의과학</item>
+        <item>E8_세종관</item>
+        <item>E9_중도</item>
+        <item>E10</item>
+        <item>E11_창의관</item>
+        <item>E12</item>
+        <item>E13</item>
+        <item>E14_본관</item>
+        <item>E15_대강당</item>
+        <item>E16_정문술</item>
+        <item>E17_운동장</item>
+        <item>E18-1</item>
+        <item>E18-2</item>
+        <item>E19_나노펩</item>
+        <item>E20_계룡관</item>
+        <item>E21_파팔</item>
+        <item>W1_응공동</item>
+        <item>W2_서측</item>
+        <item>W3_갈릴레이</item>
+        <item>W4-1_여울관</item>
+        <item>W4-2_나들관</item>
+        <item>W4-3_다솜관</item>
+        <item>W4-4_희망관</item>
+        <item>W5_기혼자</item>
+        <item>W6_미르관</item>
+        <item>W6_나래관</item>
+        <item>W7_나눔관</item>
+        <item>W8_교지동</item>
+        <item>W9_노천극장</item>
+        <item>W10</item>
+        <item>W11</item>
+        <item>W12</item>
+        <item>W16</item>
+        <item>N0_동문</item>
+        <item>N1</item>
+        <item>N2</item>
+        <item>N3_스컴</item>
+        <item>N4_인사동</item>
+        <item>N5</item>
+        <item>N6_교수회관</item>
+        <item>N7_기계동</item>
+        <item>N9</item>
+        <item>N10_교분</item>
+        <item>N11_카마</item>
+        <item>N12</item>
+        <item>N13_태울관</item>
+        <item>N13-1_신학관</item>
+        <item>N14_사랑관</item>
+        <item>N15</item>
+        <item>N16_소망관</item>
+        <item>N17_성실관</item>
+        <item>N18_진리관</item>
+        <item>N19_아름관</item>
+        <item>N20_신뢰관</item>
+        <item>N21_지혜관</item>
+        <item>N22</item>
+        <item>N23</item>
+        <item>N24</item>
+        <item>N25_산디동</item>
+        <item>N26</item>
+        <item>N27_유레카</item>
+        <item>N28</item>
+    </string-array>
+    <string-array name="infos">
+        <item>한국과학기술원\n대전광역시 유성구 대학로 291 (구성동373-1)</item>
+        <item>카이스트 정문</item>
+        <item>산업경영학동\n회색건물</item>
+        <item>전산학부\nE3라고 주로 부른다.</item>
+        <item>전기및전자공학부\nE3라고 주로 부른다.\n1층에 던킨이 있다.</item>
+        <item>미래융합소자동</item>
+        <item>새늘동</item>
+        <item>KI빌딩\nKI라고 주로 부른다.\n1층에 카페그랑이 있다.</item>
+        <item>교직원회관\n동측식당이라고 주로 부른다.</item>
+        <item>자연과학동\n자과동이라고 주로 부른다.</item>
+        <item>의과학연구센터</item>
+        <item>세종관\n동측 기숙사.\n매점과 헬스장이 있다.</item>
+        <item>중앙도서관\n문화관과 도서관으로 나누어져있다.\n문화관 2층에는 카페오가다가 있다.</item>
+        <item>중앙창고</item>
+        <item>창의학습관\n</item>
+        <item>중앙기계실</item>
+        <item>인공위성연구센터</item>
+        <item>본관</item>
+        <item>대강당</item>
+        <item>정문술빌딩</item>
+        <item>운동장</item>
+        <item>바이오모델 시스템파크</item>
+        <item>대전질환모델동물센터</item>
+        <item>나노팹센터</item>
+        <item>계룡관</item>
+        <item>KAIST클리닉\n파팔라도라고 주로 부른다.</item>
+        <item>응용공학동\n1층에 스무디킹이 있다.</item>
+        <item>학생회관-1\n1층에 서측식당이 있다.\n식당반대편 건물에 카페EAT이 있다.</item>
+        <item>갈릴레이관\n대학원생 기숙사.</item>
+        <item>여울관\n신축 기숙사. 신신이라고 부른다.</item>
+        <item>나들관\n신축 기숙사. 신신이라고 부른다.</item>
+        <item>다솜관\n신축 기숙사. 신축이라고 부른다.</item>
+        <item>희망관\n신축 기숙사. 신축이라고 부른다.</item>
+        <item>기혼자기숙사, 인터내셔널빌리지</item>
+        <item>미르관\n신축 기숙사, 삼신이라고 부른다.</item>
+        <item>나래관\n신축 기숙사, 삼신이라고 부른다.</item>
+        <item>나눔관</item>
+        <item>교육지원동\n떠팔이라고 주로 부른다.\n1층에 카페드롭탑이 있다.</item>
+        <item>노천극장\n카이스트 코인노래방이 여기 있다.</item>
+        <item>풍동실험실</item>
+        <item>외국인교수 아파트</item>
+        <item>서측기계실</item>
+        <item>지오센트리퓨지 실험동</item>
+        <item>동문</item>
+        <item>김병호,김삼열 IT융합 빌딩\n엔원이라고 주로 부른다.\n2층에 투썸플레이스가 있다.</item>
+        <item>행정분관</item>
+        <item>스포츠컴플렉스\n스컴이라고 주로 부른다.</item>
+        <item>인문사회과학부동\n인사동이라고 주로 부른다.</item>
+        <item>기초실험연구동</item>
+        <item>교수회관\n학생도 이용 가능한 식당이다.</item>
+        <item>기계공학동\n</item>
+        <item>실습동</item>
+        <item>교양분관\n교분이라고 주로 부른다.</item>
+        <item>학생식당\n북측식당,카마라고 주로 부른다\n여러 업체가 입주해있다.</item>
+        <item>학생회관-2\n우체국,매점,세탁소가 있다.</item>
+        <item>태울관\n잡화점,식당,건강관리실,휴대폰대리점이 있다.</item>
+        <item>장영신 학생회관\n2층에 롯데리아가 있다.</item>
+        <item>사랑관\n남자 학부생 기숙사</item>
+        <item>교직원 숙소</item>
+        <item>소망관\n남자 학부생 기숙사</item>
+        <item>성실관\n남자 학부생 기숙사</item>
+        <item>진리관\n남자 학부생 기숙사</item>
+        <item>아름관\n여자 학부생 기숙사</item>
+        <item>신뢰관\n남자 학부생 기숙사\n지하 1층에 체력단련실이 있다.</item>
+        <item>지혜관\n남자 학부생 기숙사</item>
+        <item>동문창업관</item>
+        <item>fMRI센터</item>
+        <item>LG세미콘홀</item>
+        <item>산업디자인학과동</item>
+        <item>고성능집적시스템연구센터</item>
+        <item>유레카관</item>
+        <item>에너지환경연구센터</item>
+    </string-array>
     <string-array name="my_array">
-        <item>화장실</item>
+        <item>학교 편의시설</item>
+        <item>까페</item>
         <item>매점</item>
         <item>식당</item>
         <item>헬스장</item>
         <item>ATM</item>
+        <item>그 외</item>
+    </string-array>
+    <string-array name="df">
+        <item>(상세)</item>
+    </string-array>
+    <string-array name="cafe">
+        <item>Cafe/Bakery</item>
+        <item>카페 잇(EAT)</item>
+        <item>드롭탑</item>
+        <item>카페그랑</item>
+        <item>투썸플레이스</item>
+        <item>카페 오가다</item>
+        <item>스무디킹</item>
+        <item>그라찌에</item>
+        <item>뚜레쥬르</item>
+        <item>던킨도너츠</item>
+    </string-array>
+    <string-array name="cafeinfo">
+        <item>Cafe/Bakery</item>
+        <item>W1 1층\n매일: 08:30 ~ 21:00 / 무휴(명절 등 제외)</item>
+        <item>교육지원동(W8) 1층\n평일: 08:00~22:00\n공휴일 10:00 ~ 21:00 / 주말 휴무</item>
+        <item>카이마루 입구 왼편\n평일(학기중) 08:30~20:00(last order 19:30)\n평일(방학중) 10:00~19:30(last order 19:00)\n토요일11:00~16:00/ 일요일 및 공휴일 휴무</item>
+        <item>N1건물 2층\n평일 및 주말: 07:00~23:00\n공휴일 정상 영업. 설·추석 명절 당일만 휴무</item>
+        <item>문화관(중앙도서관) 2층\n평일, 주말, 공휴일 08:30~21:30 (시범 운영 후 변경 가능)\n휴무일: 설·추석 연휴기간, 매월 셋째주 일요일 </item>
+        <item>응용공학동(W1) 1층\n평일(학기중) : 08:00~22:00\n평일(방학), 주말(학기중) : 9:00~22:00\n주말(방학) : 10:00~22:00</item>
+        <item>KI빌딩1층</item>
+        <item>자연과학동 궁리실험관(E6-5) 1층\n평일 및 주말: 07:00~24:00</item>
+        <item>정보전자공학동(E3-2) 1층\n평일 및 주말: 07:00 ~ 23:00\n공휴일 정상 영업. 설·추석 휴무</item>
+    </string-array>
+    <string-array name="store">
+        <item>Store</item>
+        <item>학사 매점(N12)</item>
+        <item>학생회관(W2)</item>
+        <item>교직원 매점(E5)</item>
+        <item>IT 매점(N1)</item>
+        <item>동측 매점(E8)</item>
+        <item>서측 매점(W3)</item>
+        <item>다솜관 매점(W4)</item>
+        <item>나래관 매점(W6)</item>
+        <item>잡화점,안경점</item>
+    </string-array>
+    <string-array name="storeinfo">
+        <item>Store</item>
+        <item>평일: 08:00~(익일)03:00\n※방학중: 09:00~(익일)02:00\n토요일: 09:00~19:00\n일요일 및 공휴일: 09:00~(익일)02:00</item>
+        <item>평일: 09:00~19:00\n토요일: 09:00~13:00\n일요일 및 공휴일 : 휴무</item>
+        <item>평일 : 09:00 ~ 19:00\n토요일, 일요일, 공휴일 : 휴무</item>
+        <item>평일 : 09:00 ~ 19:00\n토요일, 일요일, 공휴일 : 휴무</item>
+        <item>매일 : 19:00 ~ (익일) 02:00</item>
+        <item>평일, 토요일 : 19:00 ~ (익일) 02:00\n일요일 : 휴무</item>
+        <item>평일, 일요일 : 19:00 ~ (익일) 02:00\n토요일 : 휴무</item>
+        <item>평일, 일요일 : 19:00 ~ (익일) 02:00\n토요일 : 휴무</item>
+        <item>평일 : 09:00 ~ 19:00\n토요일 : 09:00 ~ 15:00\n일요일, 공휴일 : 휴무</item>
+    </string-array>
+    <string-array name="cafeteria">
+        <item>Cafeteria</item>
+        <item>동맛골(동측 식당)</item>
+        <item>서맛골(서측 식당)</item>
+        <item>카이마루(북측 학생식당)</item>
+        <item>태울관 뚝배기</item>
+        <item>교수회관</item>
+        <item>패컬티 클럽</item>
+    </string-array>
+    <string-array name="cafeteriainfo">
+        <item>Cafeteria</item>
+        <item>교직원회관(E5) 1~2층</item>
+        <item>서측 학생회관(W2) 1층</item>
+        <item>카이마루(N11)\n입점 업체 : 신세계푸드(카페테리아), 뚝배기, 휴김밥\n오니기리와 이규동, 상하이, 캠토</item>
+        <item>태울관(N13) 2층\n일요일은 야간 운영을 하지 않습니다</item>
+        <item>교교수회관(N6) 1~2층(회원제 교직원 식당), 3층(영빈관)</item>
+        <item>교직원회관(E5) 2층</item>
+    </string-array>
+    <string-array name="gym">
+        <item>Gym</item>
+        <item>스컴</item>
+        <item>서측</item>
+        <item>신뢰관</item>
+        <item>다솜관</item>
+        <item>미르관</item>
+        <item>나들관</item>
+        <item>세종관</item>
+    </string-array>
+    <string-array name="gyminfo">
+        <item>Gym</item>
+        <item>스포츠컴플렉스</item>
+        <item>서측체육관</item>
+        <item>신뢰관 체력단련실</item>
+        <item>다솜관 체력단련실</item>
+        <item>미르관 체력단련실</item>
+        <item>나들관 체력단련실</item>
+        <item>세종관 체력단련실</item>
+    </string-array>
+    <string-array name="atm">
+        <item>ATM</item>
+        <item>태울관</item>
+        <item>우체국앞</item>
+        <item>N1</item>
+        <item>서측</item>
+        <item>창의관</item>
+        <item>KI빌딩</item>
+        <item>본관</item>
+        <item>자과동</item>
+        <item>산경동</item>
+        <item>정문술</item>
+        <item>전자동</item>
+        <item>응공동</item>
+        <item>희망관</item>
+        <item>W8</item>
+        <item>파팔</item>
+        <item>산디동</item>
+        <item>나노종</item>
+    </string-array>
+    <string-array name="atm_info">
+        <item>ATM</item>
+        <item>태울관 1층, 우리은행ATM, \n출입키 필요없음, 24시간운영.</item>
+        <item>우체국앞, 우체국ATM, \n출입키 필요없음.</item>
+        <item>N1-김병호 김삼열 IT융합빌딩 2층, 우리은행ATM, \n출입키 O(오전엔 괜춘), 07:00~23:00</item>
+        <item>서측학생회관, 우리은행ATM, \n출입키 X, 24시간</item>
+        <item>창의관(E11), 우리은행ATM, \n출입키 X, 07:00~23:00</item>
+        <item>KI빌딩(E4), 07:00~23:00</item>
+        <item>본관(E14) 4층 휴게실, 07:00~23:00</item>
+        <item>자과동(E6) \n07:00~23:00</item>
+        <item>산경동(E2) \n07:00~23:00</item>
+        <item>정문술(E16) \n07:00~23:00</item>
+        <item>전자동(E3) \n07:00~23:00</item>
+        <item>응공동(W1) \n07:00~23:00</item>
+        <item>희망관(W4) 신축기숙사 \n07:00~23:00</item>
+        <item>교육지원동(W8) \n07:00~23:00</item>
+        <item>메디컬센터(E21) \n07:00~23:00</item>
+        <item>산디동(N25) \n07:00~23:00</item>
+        <item>나노종(E19) \n07:00~23:00</item>
+    </string-array>
+    <string-array name="others">
+        <item>Others</item>
+        <item>쪽문</item>
+        <item>여사</item>
+        <item>카라</item>
+        <item>카이코노</item>
+        <item>택승</item>
+        <item>오리연못</item>
+    </string-array>
+    <string-array name="othersinfo">
+        <item>Others</item>
+        <item>서측에 있는 작은문\n어은동으로 나가는 작은문\n카이스트 밥약 만남의장소</item>
+        <item>아름관 옆에 있는 철창\n북측기숙사에서 배달을 시킬때 주로 이용</item>
+        <item>카이라운지\n소망관과 사랑관 사이에 있음\n여럿이서 모이기 좋은 장소</item>
+        <item>카이스트 코인노래방\n24시간\n16:30 ~ 18:30 사이에 한 시간 가량 청소시간</item>
+        <item>카이스트 택시승강장\n기계동과 태울관 사이에 있음</item>
+        <item>오리연못이지만 거위의 홈그라운드</item>
     </string-array>
 </resources>

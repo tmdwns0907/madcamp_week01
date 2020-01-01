@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#000000"
+    android:background="#80FFFFFF"
     >
     <RelativeLayout
         android:layout_width="match_parent"
@@ -14,38 +14,59 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clickable="true"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp" />
-        <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:text="현재위치"/>
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp" />
         <Spinner
             android:id="@+id/spinner"
             android:background="@drawable/spinner_background"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_alignTop="@id/button"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="20dp"
-            android:text="카이스트 주변 편의시설 찾아보기"
+            android:fontFamily="@font/fonttest"
+            android:padding="0dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="80dp"
+            />
+        <Spinner
+            android:id="@+id/spinnerson"
+            android:background="@drawable/spinner_background"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/fonttest"
+            android:padding="0dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="30dp"
+            />
+        <Spinner
+            android:id="@+id/spinner2"
+            android:background="@drawable/spinner_background"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/fonttest"
+            android:padding="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_alignLeft="@id/spinner"
             />
     </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="3"
-        android:background="#DDDDDD">
+        android:background="#50FFFFFF">
         <TextView
             android:id="@+id/Text"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"
-            android:text="설명란이 될것입니다."
+            android:padding="5dp"
+            android:fontFamily="@font/fonttest"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="7dp"
+            android:textSize="20dp"
+            android:background="@drawable/explanation"
+            android:text="한국과학기술원\n대전광역시 유성구 대학로 291 (구성동373-1)"
             ></TextView>
     </LinearLayout>
 </LinearLayout>
