@@ -37,5 +37,5 @@ All users can track their own location. and they can find location of facilities
 
     
 ## Authors
-- Jaehwan Lee (leecree)
+- Jaehwan Lee (leesecre)
 - Seungjun Oh (tmdwns0907)
